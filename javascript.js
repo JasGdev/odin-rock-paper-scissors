@@ -18,6 +18,8 @@ function playGame(){
     let computerScore = 0;
     let display = document.createElement('div');
     body.appendChild(display);
+    let endMsg = document.createElement('div');
+    body.appendChild(endMsg);
 
     function playRound(humanChoice, computerChoice){
         if (humanChoice == 'rock' && computerChoice == 'scissors' ||
@@ -81,8 +83,10 @@ function playGame(){
                 playRound('scissors', getComputerChoice());
                 // console.log("scissors");
                 break         
+            }
+        } else {
+            endMsg.textContent = 'Game is over, refresh page to start a new game';
         }
-        } 
         
     })
 
