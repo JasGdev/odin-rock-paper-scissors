@@ -8,34 +8,36 @@ function getComputerChoice(){
         return "scissors"
     }
 }
-    // // display setup
-    // let display = document.createElement('div');
-    // display.textContent = "ASSS";
-    // body.appendChild(display);
+
 
 
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
+    let display = document.createElement('div');
+    body.appendChild(display);
 
     function playRound(humanChoice, computerChoice){
+    
+    
+    
         if (humanChoice == 'rock' && computerChoice == 'scissors' ||
             humanChoice == 'scissors' && computerChoice == 'paper' ||
             humanChoice == 'paper' && computerChoice == 'rock' 
         ){
             humanScore++;
-            console.log(`human wins with ${humanChoice} over computers ${computerChoice},
-                human score is ${humanScore} and computer score is ${computerScore}`)
+            display.textContent = `human wins with ${humanChoice} over computers ${computerChoice},
+                human score is ${humanScore} and computer score is ${computerScore}`;
         } else if (
             computerChoice == 'rock' && humanChoice == 'scissors' ||
             computerChoice == 'scissors' && humanChoice == 'paper' ||
             computerChoice == 'paper' && humanChoice == 'rock' 
         ){
             computerScore++;
-            console.log(`computer wins with ${computerChoice} over humans ${humanChoice},
-                human score is ${humanScore} and computer score is ${computerScore}`)
+            display.textContent = `computer wins with ${computerChoice} over humans ${humanChoice},
+                human score is ${humanScore} and computer score is ${computerScore}`;
         } else {
-            console.log(`Tie, human score is ${humanScore} and computer score is ${computerScore}`)
+            display.textContent = `Tie, human score is ${humanScore} and computer score is ${computerScore}`;
         }
     }
 
@@ -59,13 +61,11 @@ function playGame(){
             case 'scissors':
                 playRound('scissors', getComputerChoice());
                 // console.log("scissors");
-                break
-                 
-
-            
+                break         
         }
     })
 
+    
     
 
     
