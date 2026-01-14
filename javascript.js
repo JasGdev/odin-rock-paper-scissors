@@ -14,43 +14,39 @@ function getHumanChoice(){
     return choice
 }
 
-let body = document.querySelector('body');
-body.addEventListener('click', (event) => {
-    let target = event.target;
+// button setup
+    let body = document.querySelector('body');
+    body.addEventListener('click', (event) => {
+        let target = event.target;
 
-    switch(target.id){
-        case 'rock':
-            playRound('rock', computerChoice);
-            console.log("rock");
-            break
-        case 'paper':
-            playRound('paper', computerChoice);
-            console.log("paper");
-            break
-        case 'scissors':
-            playRound('scissors', computerChoice);
-            console.log("scissors");
-            break
+        switch(target.id){
+            case 'rock':
+                playRound('rock', getComputerChoice);
+                console.log("rock");
+                break
+            case 'paper':
+                playRound('paper', getComputerChoice);
+                console.log("paper");
+                break
+            case 'scissors':
+                playRound('scissors', getComputerChoice);
+                console.log("scissors");
+                break
 
-        
-    }
+            
+        }
+    })
 
-
-})
-
-// let rockBtn = document.querySelector('#rock')
-// let paperBtn = document.querySelector('#paper')
-// let scissorBtn = document.querySelector('#scissor')
-
-// function rockClick(){
-
-// }
+    // display setup
+    let display = document.createElement('div');
+    display.textContent = "ASSS";
+    body.appendChild(display);
 
 
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
-
+    
     function playRound(humanChoice, computerChoice){
         humanChoice = humanChoice.toLowerCase();
 
@@ -74,12 +70,10 @@ function playGame(){
         }
     }
 
-    playRound(getHumanChoice(), getComputerChoice());
-        // playRound(getHumanChoice(), getComputerChoice());
-        // playRound(getHumanChoice(), getComputerChoice());
-        // playRound(getHumanChoice(), getComputerChoice());
-        // playRound(getHumanChoice(), getComputerChoice());
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
 
+    playRound(humanSelection, computerSelection);
     if (humanScore > computerScore){
         console.log('human is the ultimate winner,'+ ` human score is ${humanScore} and computer score is ${computerScore}`)
     } else if (computerScore > humanScore){
@@ -90,4 +84,4 @@ function playGame(){
 
 }
 
-playGame();
+// playGame();
