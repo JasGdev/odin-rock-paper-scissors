@@ -14,7 +14,37 @@ function getHumanChoice(){
     return choice
 }
 
+let body = document.querySelector('body');
+body.addEventListener('click', (event) => {
+    let target = event.target;
 
+    switch(target.id){
+        case 'rock':
+            playRound('rock', computerChoice);
+            console.log("rock");
+            break
+        case 'paper':
+            playRound('paper', computerChoice);
+            console.log("paper");
+            break
+        case 'scissors':
+            playRound('scissors', computerChoice);
+            console.log("scissors");
+            break
+
+        
+    }
+
+
+})
+
+// let rockBtn = document.querySelector('#rock')
+// let paperBtn = document.querySelector('#paper')
+// let scissorBtn = document.querySelector('#scissor')
+
+// function rockClick(){
+
+// }
 
 
 function playGame(){
@@ -45,10 +75,10 @@ function playGame(){
     }
 
     playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
+        // playRound(getHumanChoice(), getComputerChoice());
+        // playRound(getHumanChoice(), getComputerChoice());
+        // playRound(getHumanChoice(), getComputerChoice());
+        // playRound(getHumanChoice(), getComputerChoice());
 
     if (humanScore > computerScore){
         console.log('human is the ultimate winner,'+ ` human score is ${humanScore} and computer score is ${computerScore}`)
